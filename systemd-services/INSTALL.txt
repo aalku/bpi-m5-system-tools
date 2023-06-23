@@ -1,0 +1,5 @@
+Enter the directory where fan-controller.service is and run this to use it as service through a link:
+
+sudo ln -s $PWD/fan-controller.service /etc/systemd/system/
+
+sudo systemctl enable --now fan-controller

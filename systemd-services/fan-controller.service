@@ -1,0 +1,12 @@
+[Unit]
+Description=Automatic fan control
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 /home/pi/bpi-m5-system-tools/worker-scripts/fan-controller.py
+
+[Install]
+WantedBy=multi-user.target
+
