@@ -2,7 +2,7 @@ import time
 import evdev, signal, os
 
 # Config
-shutdownCommand = "sudo systemctl shutdown now"
+shutdownCommand = "sudo shutdown now"
 buttonName = "BTN_3"
 devicePath = "/dev/input/by-path/platform-adc_keys-event"
 
