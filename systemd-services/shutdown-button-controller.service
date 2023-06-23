@@ -1,0 +1,12 @@
+[Unit]
+Description=Banana Pi M5 Power Button Handler
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 /home/pi/bpi-m5-system-tools/worker-scripts/shutdown-button-controller.py
+
+[Install]
+WantedBy=multi-user.target
+

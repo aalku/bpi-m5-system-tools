@@ -9,8 +9,8 @@ fanPin = 23    # pin 16 (bcm27)
 
 # Config
 # temp C, on at maxTemp and off below lowTemp
-maxTemp = 55
-lowTemp = 45
+maxTemp = 65
+lowTemp = 55
 
 # Sensor file
 sensorFile = "/sys/class/thermal/thermal_zone0/temp"
