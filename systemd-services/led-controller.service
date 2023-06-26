@@ -1,0 +1,12 @@
+[Unit]
+Description=Board led controller
+After=armbian-led-state.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 /home/pi/bpi-m5-system-tools/worker-scripts/led-controller.py
+
+[Install]
+WantedBy=basic.target
+
