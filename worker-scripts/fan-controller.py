@@ -3,6 +3,7 @@ import time
 import RPi.GPIO as GPIO
 import datetime
 import json
+import os
 
 # Define the GPIO pin that connects the fan
 fanPin = 23  # pin 16 (bcm27)
@@ -16,10 +17,10 @@ lowTemp = 55
 sensorFile = "/sys/class/thermal/thermal_zone0/temp"
 
 # Status file, so other apps can tell if it's on or off. Set it to False to disable
-statusFile = "/run/fan-status.json"
+statusFile = "/run/fan-controller/fan-status.json"
 
 # Log file. Every line is a JSON object. Set it to False to disable
-logFile = "/var/log/fan-controller.log"
+logFile = "/var/log2/fan-controller/fan-controller.log"
 logEveryMinutes = 2
 
 # FANcy startup and shutdown with a fan pulse
@@ -34,6 +35,11 @@ status = {
     "lastLogComment" : None,
     "lastStatus" : None
 }
+
+dirs = [ os.path.dirname(statusFile), os.path.dirname(logFile) ]
+for d in dirs:
+    if not os.path.isdir(d):
+        os.makedirs(d)
 
 def exit_gracefully(self, *args):
     raise BaseException("Shutting down")
